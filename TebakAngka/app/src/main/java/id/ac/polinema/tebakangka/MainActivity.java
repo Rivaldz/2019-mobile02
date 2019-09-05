@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 	public void handleGuess(View view) {
 		// TODO: Tambahkan logika untuk melakukan pengecekan angka
 		Random rand = new Random();
-		int value = rand.nextInt(101);
+		int value = rand.nextInt(4);
 		String sIn = numberInput.getText().toString();
 		int	in = Integer.parseInt(sIn);
 			if (in > value){
@@ -57,5 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
 	public void handleReset(View view) {
 		// TODO: Reset tampilan
+		numberInput.setText("");
 	}
 }
