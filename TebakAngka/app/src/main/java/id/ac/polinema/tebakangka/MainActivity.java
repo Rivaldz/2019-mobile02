@@ -14,23 +14,27 @@ public class MainActivity extends AppCompatActivity {
 
 	//  TODO: deklarasikan variabel di sini
 	int random,guess;
+	private EditText numberInput;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		// TODO: bind layout di sini
+		numberInput = findViewById(R.id.number_input);
 	}
 
 	// TODO: generate angka random di sini
 	private void initRandomNumber() {
-		random = (int) (Math.random()*100);
+		Random random = new Random();
+		int rand = random.nextInt(101);
 
 
 	}
 
 	public void handleGuess(View view) {
 		// TODO: Tambahkan logika untuk melakukan pengecekan angka
-		
+
 	}
 
 	public void handleReset(View view) {
