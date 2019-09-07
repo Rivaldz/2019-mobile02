@@ -13,9 +13,10 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
 	//  TODO: deklarasikan variabel di sini
-	int random,guess;
+	private int random;
 	private EditText numberInput;
 	private Button button;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,24 +28,33 @@ public class MainActivity extends AppCompatActivity {
 
 	}
 
+	@Override
+	protected void onStart() {
+		super.onStart();
+		initRandomNumber();
+	}
+
 	// TODO: generate angka random di sini
 	private void initRandomNumber() {
 		Random random = new Random();
-		int rand = random.nextInt(3);
+		int rand = random.nextInt(6);
+		this.random = rand;
 
 
 	}
 
 	public void handleGuess(View view) {
 		// TODO: Tambahkan logika untuk melakukan pengecekan angka
-		Random rand = new Random();
-		int value = rand.nextInt(4);
+		button.setEnabled(false);
+		//String a = initRandomNumber();
+//		Random rand = new Random();
+//		int value = rand.nextInt(6);
 		String sIn = numberInput.getText().toString();
 		int	in = Integer.parseInt(sIn);
-			if (in > value){
+			if (in > random){
 				Toast.makeText(this, "tebakan anda terlalu besar", Toast.LENGTH_SHORT).show();
 			}
-			else if (in < value){
+			else if (in < random){
 				Toast.makeText(this, "Tebakan anda terlalu kecil", Toast.LENGTH_SHORT).show();
 
 			}
@@ -58,5 +68,7 @@ public class MainActivity extends AppCompatActivity {
 	public void handleReset(View view) {
 		// TODO: Reset tampilan
 		numberInput.setText("");
+		button.setEnabled(true);
+//		initRandomNumber();
 	}
 }
