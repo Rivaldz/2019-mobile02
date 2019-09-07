@@ -69,6 +69,6 @@ public class MainActivity extends AppCompatActivity {
 		// TODO: Reset tampilan
 		numberInput.setText("");
 		button.setEnabled(true);
-//		initRandomNumber();
+		initRandomNumber();
 	}
 }
